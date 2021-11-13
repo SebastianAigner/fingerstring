@@ -9,6 +9,7 @@ while true; do
   if ! curl -s https://patchbay.pub/"$SUBMITCHANNEL"; then
     # Avoid too many requests if server is down or rejecting
     sleep 1
+    continue
   fi
   echo "Update endpoint hit."
   TODAY=$(date '+%Y-%m-%d')
