@@ -4,7 +4,7 @@ An extremely tiny daily reminder app that keeps nagging you until you actively c
 It can be hosted locally, even behind NAT, and will still be reachable from the internet.
 Powered by [patchbay](https://patchbay.pub/) for serving pages and [Pushover](https://pushover.net/) for notifications.
 
-Written in Bash.
+Written in Bash. Named after the [String on Finger](https://tvtropes.org/pmwiki/pmwiki.php/Main/StringOnFingerReminder) trope.
 
 ![](screenshot.png)
 
