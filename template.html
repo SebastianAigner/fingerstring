@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        h1,
+        p {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        #btnfrm {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        input[type=button],
+        input[type=submit],
+        input[type=reset],
+        button {
+            background-color: #fcccfc;
+            border: none;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            max-width: 80%;
+            white-space: normal;
+            font-size: 32px;
+            height: 180px;
+            -webkit-appearance: none;
+        }
+    </style>
+    <script>
+        function submit() {
+            fetch('https://patchbay.pub/${url}', {method: 'POST'})
+                .then(response => {
+                    document.getElementById("subbtn").innerText = (response.ok ? "OK!" : "Sorry, error.");
+                    if (response.ok) {
+                        document.getElementById("lasttaken").innerText = "Just now."
+                        fetch(window.location.href); // "Flushes" the last pre-generated page.
+                    }
+                })
+            return false;
+        }
+    </script>
+</head>
+</html>
+
+<h1>HJ's Tablett-o-mat</h1>
+<p>Zuletzt genommen:
+    <span id="lasttaken">${date}</span>
+</p>
+
+
+<div id="btnfrm">
+    <button id="subbtn" onclick="submit()" name="taken" value="Tablette genommen!">Tablette genommen!</button>
+</div>
+<p style="font-size: 80px">
+    &#x1F48A;
+</p>
